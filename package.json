@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export -o docs/",
+    "build": "next build && next export -o docs/ && echo.> docs/.nojekyll && echo.> docs/_next/.nojekyll",
     "start": "next start",
     "lint": "next lint"
   },
