@@ -5,7 +5,8 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
+        <link rel="manifest" href="/manifest.json" />
       </Head>
 
       <main className={styles.main}>
