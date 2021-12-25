@@ -1,7 +1,10 @@
 import App from "next/app";
 import Head from "next/head";
-import '../styles/globals.css'
-import { createContext } from 'react'
+
+import '../styles/globals.css';
+import '../styles/index.scss'
+
+import { createContext } from 'react';
 import { fetchAPI } from '../lib/api';
 
 // Store Strapi Global object in context
@@ -21,7 +24,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="manifest" href="/manifest.json" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={true}/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
         <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" /> 
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet" /> 
       </Head>

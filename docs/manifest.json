@@ -3,9 +3,9 @@
     "short_name": "HH",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#ffffff",
-    "orientation": "landscape",
+    "background_color": "#ffffd6",
+    "theme_color": "#ffffd6",
+    "orientation": "natural",
     "icons": [
         {
           "src": "/favicon-32x32.png",
