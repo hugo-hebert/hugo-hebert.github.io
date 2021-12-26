@@ -10,8 +10,8 @@ import { fetchAPI } from '../lib/api';
 export const GlobalContext = createContext({});
 
 function MyApp({ Component, pageProps }) {
-  const { global } = pageProps;
-
+  const { global, header } = pageProps;
+  
   return (
     <>
       <Head>
@@ -38,8 +38,9 @@ MyApp.getInitialProps = async (ctx) => {
   const appProps = await App.getInitialProps(ctx);
   // Fetch global site settings from Strapi
   const global = await fetchAPI("/global");
+  const header = await fetchAPI("/header");
   // Pass the data to our page via props
-  return { ...appProps, pageProps: { global } };
+  return { ...appProps, pageProps: { global, header } };
 };
 
 export default MyApp
