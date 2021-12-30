@@ -9,7 +9,6 @@ const util = {
   getObject(pageProps, obj, defaultValue = null) {
     return get(pageProps, `${obj}.data.attributes`, defaultValue);
   }
-
 }
 
 export default util;

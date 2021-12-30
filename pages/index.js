@@ -5,6 +5,8 @@ import Head from 'next/head';
 export default function Home(pageProps) {
   const title = (util.getValue(pageProps, 'global', 'meta_title')) + ' | Home';
   
+  console.log(pageProps);
+  
   return (
     <>
       <Head>

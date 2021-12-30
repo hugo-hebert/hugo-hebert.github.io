@@ -3,7 +3,7 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import Header from './components/Header';
 
-import {fetchAPI} from '../lib/api';
+import {fetchAPI, fetchSingles, fetchCollections} from '../lib/api';
 import util from '../util/strapi_utils';
 
 function MyDocument({ docProps, pageProps }) {
@@ -43,6 +43,17 @@ MyDocument.getInitialProps = async (ctx) => {
   const global = await fetchAPI("/global");
   // fetch header info
   const header = await fetchAPI("/header", ['navigation']);
+
+  // fetch page specific data
+  const skills = await fetchCollections("/skills");
+
+
+  const test1 = await fetchAPI("/header", ['navigation']);
+  console.log(test1);
+  const test2 = await fetchSingles("/header", ['navigation']);
+  console.log(test2);
+  const test3 = await fetchCollections("/skills");
+  console.log(test3);
 
   // Pass the data to our page via props
   return { ...docProps, pageProps: { global, header } };

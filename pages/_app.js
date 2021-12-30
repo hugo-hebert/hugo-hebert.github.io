@@ -4,7 +4,7 @@ import Head from "next/head";
 import '../styles/index.scss'
 
 import { createContext } from 'react';
-import { fetchAPI } from '../lib/api';
+import { fetchAPI, fetchSingles, fetchCollections } from '../lib/api';
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext({});
@@ -38,9 +38,16 @@ MyApp.getInitialProps = async (ctx) => {
   const appProps = await App.getInitialProps(ctx);
   // Fetch global site settings from Strapi
   const global = await fetchAPI("/global");
-  const header = await fetchAPI("/header");
+  // fetch header info
+  const header = await fetchAPI("/header", ['navigation']);
+
+  // fetch page specific data
+  // Home Page
+  const homePage = await fetchSingles("/home");
+  const skills = await fetchCollections("/skills");
+
   // Pass the data to our page via props
-  return { ...appProps, pageProps: { global, header } };
+  return { ...appProps, pageProps: { global, header, homePage, skills } };
 };
 
 export default MyApp
