@@ -7,7 +7,9 @@ const Header = ({data}) => {
    
   return (
     <header class="main-nav">
-      <h3>{data.attributes.title}</h3>
+      <a href="/" className="barebones">
+        <h3 className="main-nav--title">{data.attributes.title}</h3>
+      </a>
       <div className="main-nav--links">
       {
         data.attributes.navigation.map( (nav, ix) => {

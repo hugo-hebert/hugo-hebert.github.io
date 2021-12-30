@@ -2,10 +2,23 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 
+  &--title {
+    overflow: hidden;
+    text-overflow: clip;
+
+    @include phone { max-height: 2.5rem; }
+    @include tablet { max-height: 3rem; }
+    @include desktop { max-height: 3.5rem; }
+  }
+
   &--links {
     display: flex;
     & > * {
       margin-left: 1rem;
+    }
+
+    & > *:first-child {
+      margin-left: auto;
     }
   }
 }

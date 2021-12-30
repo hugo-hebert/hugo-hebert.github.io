@@ -18,12 +18,32 @@ body {
   }
 }
 
-a {
+a.barebones {
   color: inherit;
   text-decoration: none;
 
   display: flex;
   align-items: center;
+  font: $type-h6;
+
+  &:hover, &:focus, &:active {
+    font: $type-h6;
+    text-decoration: underline;
+  }
+}
+
+a:not(.barebones) {
+  color: $blue;
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  font: $type-h6;
+
+  &:hover, &:focus, &:active {
+    font: $type-h6;
+    text-decoration: underline;
+  }
 }
 
 @include phone {
