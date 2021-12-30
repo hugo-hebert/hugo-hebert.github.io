@@ -1,0 +1,19 @@
+@mixin phone {
+  @media (max-width: $tablet) { @content ; }
+}
+
+@mixin tablet-and-down {
+  @media (max-width: $large-screen-breakpoint) { @content ; }
+}
+
+@mixin tablet {
+  @media (min-width: calc(#{$phone + 1px})) and (max-width: $large-screen-breakpoint) { @content ; }
+}
+
+@mixin tablet-and-up {
+  @media (min-width: calc(#{$phone + 1px})) { @content ; }
+}
+
+@mixin desktop {
+  @media (min-width: $large-screen-breakpoint) { @content ; }
+}

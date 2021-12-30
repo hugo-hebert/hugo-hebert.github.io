@@ -1,8 +1,11 @@
 
 // Setup
 @import 'setup/vars.scss';
+@import 'setup/dimensions.scss';
+@import 'setup/mixins.scss';
 @import 'setup/global.scss';
 @import 'setup/maintenance.scss';
 
 // Components
 @import 'components/Home.scss';
+@import 'components/Header.scss';
