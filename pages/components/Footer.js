@@ -12,7 +12,7 @@ const Footer = ({data}) => {
       <div className="footer--nav">
         {links.map( (link, ix) => {
           return (
-            <a href={link.url} className="external">{link.display_value}</a>
+            <a href={link.url} className="external" target="hugo_hebert_external">{link.display_value}</a>
           )
         })}
       </div>
