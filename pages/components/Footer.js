@@ -3,10 +3,8 @@ import get from 'lodash.get';
 
 const Footer = ({data}) => {
 
-  console.log(data);
   const text = get(data, 'attributes.text', '');
   const links = get(data, 'attributes.links', []);
-  console.log(links);
 
   return (
     <div className="footer">
