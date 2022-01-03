@@ -1,21 +1,38 @@
 
 import util from '../util/strapi_utils';
 import Head from 'next/head';
+import get from 'lodash.get';
+
+import Skills from './components/Skills';
+import Employment_History from './components/Employment_History';
 
 export default function Home(pageProps) {
   const title = (util.getValue(pageProps, 'global', 'meta_title')) + ' | Home';
-  
-  console.log(pageProps);
+
+  const value_stat  = get(pageProps, 'homePage.value_statement', null);
+  const skills      = get(pageProps, 'skills', null);
+  const emp_hist    = get(pageProps, 'employment_history', null);
   
   return (
     <>
       <Head>
         <title>{title}</title>
       </Head>
-      <div className=''>
-        <main className='main'>
-        </main>
-      </div>
+      <main className='main'>
+        <section>
+          {value_stat
+            ? <div className="value-statement">{value_stat}</div>
+            : '' }
+        </section>
+
+        <section>
+          { skills ? <Skills skills={skills} /> : ''}
+        </section>
+
+        <section>
+          {emp_hist ? <Employment_History emp_hist={emp_hist} /> : ''}
+        </section>
+      </main>
     </>
   )
 }

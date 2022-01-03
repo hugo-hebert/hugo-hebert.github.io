@@ -9,12 +9,29 @@ body {
 
 body {
   max-width: 1400px;
+  min-height: 100vh;
+
   @include tablet-and-down {
     margin: 0 1rem;
   }
 
   @include desktop {
     margin: 0 auto;
+  }
+}
+
+.main {
+  padding: 4rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font: normal 1rem / 1rem 'Lato', sans-serif;
+
+
+  & > section + section {
+    margin-top: 4rem;
   }
 }
 
@@ -44,6 +61,14 @@ a:not(.barebones) {
     font: $type-h6;
     text-decoration: underline;
   }
+}
+
+a.external::after {
+  display: flex;
+  margin-left: 0.5rem;
+  content: url('/assets/img/icons/top-right-blue.png');
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 @include phone {

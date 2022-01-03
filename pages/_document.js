@@ -2,6 +2,7 @@
 
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 import {fetchAPI, fetchSingles, fetchCollections} from '../lib/api';
 import util from '../util/strapi_utils';
@@ -10,6 +11,9 @@ function MyDocument({ docProps, pageProps }) {
 
   const maintenance_mode  = util.getValue(pageProps, 'global', 'maintenance_mode', false);
   const header            = pageProps.header;
+  const footer            = pageProps.footer;
+
+  console.log(pageProps);
 
   return (
     <Html>
@@ -31,6 +35,7 @@ function MyDocument({ docProps, pageProps }) {
         <Header data={header.data}/>
         <Main />
         <NextScript />
+        <Footer data={footer.data}/>
       </body>
     </Html>
   )
@@ -41,11 +46,9 @@ MyDocument.getInitialProps = async (ctx) => {
   const docProps = await Document.getInitialProps(ctx);
   // Fetch global site settings from Strapi
   const global = await fetchAPI("/global");
-  // fetch header info
+  // fetch header and footer info
   const header = await fetchAPI("/header", ['navigation']);
-
-  // fetch page specific data
-  const skills = await fetchCollections("/skills");
+  const footer = await fetchAPI("/footer", ['links']);
 
 
   const test1 = await fetchAPI("/header", ['navigation']);
@@ -56,7 +59,7 @@ MyDocument.getInitialProps = async (ctx) => {
   console.log(test3);
 
   // Pass the data to our page via props
-  return { ...docProps, pageProps: { global, header } };
+  return { ...docProps, pageProps: { global, header, footer } };
 }
 
 export default MyDocument;

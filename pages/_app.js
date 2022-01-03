@@ -45,9 +45,10 @@ MyApp.getInitialProps = async (ctx) => {
   // Home Page
   const homePage = await fetchSingles("/home");
   const skills = await fetchCollections("/skills");
+  const employment_history = await fetchCollections("/employment-histories");
 
   // Pass the data to our page via props
-  return { ...appProps, pageProps: { global, header, homePage, skills } };
+  return { ...appProps, pageProps: { global, header, homePage, skills, employment_history } };
 };
 
 export default MyApp
