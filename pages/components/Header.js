@@ -1,10 +1,8 @@
 
-import get from 'lodash.get';
-
 const Header = ({data}) => {
   
-  const title = get(data, 'attributes.title', '');
-  const navigation = get(data, 'attributes.navigation', []);
+  const title       = data.title ?? '';
+  const navigation  = data.navigation ?? [];
 
    
   return (

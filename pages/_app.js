@@ -35,15 +35,15 @@ function MyApp({ Component, pageProps }) {
 // https://github.com/vercel/next.js/discussions/10949
 MyApp.getInitialProps = async (ctx) => {
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
-  const appProps = await App.getInitialProps(ctx);
+  const appProps  = await App.getInitialProps(ctx);
   // Fetch global site settings from Strapi
-  const global = await fetchAPI("/global");
+  const global    = await fetchAPI("/global");
 
   // fetch page specific data
   // Home Page
-  const homePage = await fetchSingles("/home");
-  const skills = await fetchCollections("/skills");
-  const employment_history = await fetchCollections("/employment-histories");
+  const homePage            = await fetchSingles("/home");
+  const skills              = await fetchCollections("/skills");
+  const employment_history  = await fetchCollections("/employment-histories");
 
   // Pass the data to our page via props
   return { ...appProps, pageProps: { global, homePage, skills, employment_history } };

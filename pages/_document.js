@@ -30,10 +30,10 @@ function MyDocument({ docProps, pageProps }) {
           </div>
           : ''
         }
-        <Header data={header.data}/>
+        <Header data={header}/>
         <Main />
         <NextScript />
-        <Footer data={footer.data}/>
+        <Footer data={footer}/>
       </body>
     </Html>
   )
@@ -45,9 +45,10 @@ MyDocument.getInitialProps = async (ctx) => {
   // Fetch global site settings from Strapi
   const global = await fetchAPI("/global");
   // fetch header and footer info
-  const header = await fetchAPI("/header", ['navigation']);
-  const footer = await fetchAPI("/footer", ['links']);
+  const header = await fetchSingles('/header', ['navigation']);
+  const footer = await fetchSingles("/footer", ['links']);
   
+  const headerBis = await fetchSingles('/header', ['navigation']);
   // Pass the data to our page via props
   return { ...docProps, pageProps: { global, header, footer } };
 }

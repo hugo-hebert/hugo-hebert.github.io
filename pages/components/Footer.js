@@ -1,10 +1,8 @@
 
-import get from 'lodash.get';
-
 const Footer = ({data}) => {
 
-  const text = get(data, 'attributes.text', '');
-  const links = get(data, 'attributes.links', []);
+  const text  = data.text ?? '';
+  const links = data.links ?? [];
 
   return (
     <div className="footer">
