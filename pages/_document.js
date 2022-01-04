@@ -9,7 +9,7 @@ import util from '../util/strapi_utils';
 
 function MyDocument({ docProps, pageProps }) {
 
-  const maintenance_mode  = util.getValue(pageProps, 'global', 'maintenance_mode', false);
+  const maintenance_mode  = pageProps.global.maintenance_mode ?? true;
   const header            = pageProps.header;
   const footer            = pageProps.footer;
 
@@ -21,17 +21,17 @@ function MyDocument({ docProps, pageProps }) {
         <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" /> 
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet" /> 
       </Head>
-      <body>
+      <body className={maintenance_mode ? 'body--maintenance' : ''}>
         {
           maintenance_mode ? 
           <div className="maintenance-mode">
             <p>WIP. Check back soon.</p>
-            <a href="https://www.linkedin.com/in/hugo-hebert-0649b1111/" className="link external">LinkedIn <img src="/assets/img/icons/top-right.png" alt='' width="40px" height="40px"/> </a>
+            <a href="https://www.linkedin.com/in/hugo-hebert-0649b1111/" className="barebones">LinkedIn <img src="/assets/img/icons/top-right.png" alt='' width="40px" height="40px"/> </a>
           </div>
           : ''
         }
         <Header data={header}/>
-        <Main />
+        <Main/>
         <NextScript />
         <Footer data={footer}/>
       </body>
@@ -43,7 +43,7 @@ MyDocument.getInitialProps = async (ctx) => {
   // Calls page's `getInitialProps` and fills `docProps.pageProps`
   const docProps = await Document.getInitialProps(ctx);
   // Fetch global site settings from Strapi
-  const global = await fetchAPI("/global");
+  const global = await fetchSingles("/global");
   // fetch header and footer info
   const header = await fetchSingles('/header', ['navigation']);
   const footer = await fetchSingles("/footer", ['links']);

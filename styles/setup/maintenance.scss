@@ -1,5 +1,7 @@
 .maintenance-mode {
   position: fixed;
+  z-index: 10;
+
   width: 100vw;
   height: 100vh;
   background: white;
@@ -12,4 +14,8 @@
   font: 900 2rem / 2.5rem 'Lato', sans-serif;
   
   background-color: #ffffd6;
+}
+
+body.body--maintenance {
+  margin: 0;
 }
