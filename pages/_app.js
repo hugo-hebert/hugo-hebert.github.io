@@ -10,7 +10,7 @@ import { fetchAPI, fetchSingles, fetchCollections } from '../lib/api';
 export const GlobalContext = createContext({});
 
 function MyApp({ Component, pageProps }) {
-  const { global, header } = pageProps;
+  const { global } = pageProps;
   
   return (
     <>
@@ -38,8 +38,6 @@ MyApp.getInitialProps = async (ctx) => {
   const appProps = await App.getInitialProps(ctx);
   // Fetch global site settings from Strapi
   const global = await fetchAPI("/global");
-  // fetch header info
-  const header = await fetchAPI("/header", ['navigation']);
 
   // fetch page specific data
   // Home Page
@@ -48,7 +46,7 @@ MyApp.getInitialProps = async (ctx) => {
   const employment_history = await fetchCollections("/employment-histories");
 
   // Pass the data to our page via props
-  return { ...appProps, pageProps: { global, header, homePage, skills, employment_history } };
+  return { ...appProps, pageProps: { global, homePage, skills, employment_history } };
 };
 
 export default MyApp

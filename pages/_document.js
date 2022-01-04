@@ -13,8 +13,6 @@ function MyDocument({ docProps, pageProps }) {
   const header            = pageProps.header;
   const footer            = pageProps.footer;
 
-  console.log(pageProps);
-
   return (
     <Html>
       <Head>
@@ -49,15 +47,7 @@ MyDocument.getInitialProps = async (ctx) => {
   // fetch header and footer info
   const header = await fetchAPI("/header", ['navigation']);
   const footer = await fetchAPI("/footer", ['links']);
-
-
-  const test1 = await fetchAPI("/header", ['navigation']);
-  console.log(test1);
-  const test2 = await fetchSingles("/header", ['navigation']);
-  console.log(test2);
-  const test3 = await fetchCollections("/skills");
-  console.log(test3);
-
+  
   // Pass the data to our page via props
   return { ...docProps, pageProps: { global, header, footer } };
 }

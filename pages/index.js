@@ -22,7 +22,7 @@ export default function Home(pageProps) {
       <main className='main' data-layout="home">
         <section>
           {value_stat
-            ? <Value_Statement title="Value Statement" value_stat={value_stat}/>
+            ? <Value_Statement value_stat={value_stat}/>
             : '' }
         </section>
 
