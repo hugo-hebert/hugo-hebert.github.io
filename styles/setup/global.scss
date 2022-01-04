@@ -27,12 +27,18 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font: normal 1rem / 1rem 'Lato', sans-serif;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1rem;
 
 
   & > section + section {
     margin-top: 4rem;
   }
+}
+
+section {
+  width: 100%;
 }
 
 a.barebones {

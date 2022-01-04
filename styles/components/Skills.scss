@@ -1,0 +1,28 @@
+.skills {
+  width: 100%;
+
+  &--skill-meter {
+    width: 100%;
+
+    height: 2rem;
+    margin-bottom: 2rem;
+
+    position: relative;
+
+    &--fill {
+      height: 2rem;
+      display: block;
+
+      position: absolute;
+    }
+
+    &--description {
+      height: 2rem;
+      position: absolute;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
