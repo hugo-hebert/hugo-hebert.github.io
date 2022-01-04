@@ -1,0 +1,17 @@
+.value-statement {
+
+
+  // Responsive design
+
+  @include phone {
+    width: 100%;
+  }
+
+  @include tablet {
+    width: 80%;
+  }
+
+  @include desktop {
+    width: 60%;
+  }
+}

@@ -3,6 +3,7 @@ import util from '../util/strapi_utils';
 import Head from 'next/head';
 import get from 'lodash.get';
 
+import Value_Statement from './components/Value_Statement';
 import Skills from './components/Skills';
 import Employment_History from './components/Employment_History';
 
@@ -21,7 +22,7 @@ export default function Home(pageProps) {
       <main className='main'>
         <section>
           {value_stat
-            ? <div className="value-statement">{value_stat}</div>
+            ? <Value_Statement title="Value Statement" value_stat={value_stat}/>
             : '' }
         </section>
 
