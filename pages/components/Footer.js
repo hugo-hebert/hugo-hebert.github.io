@@ -3,12 +3,12 @@ import Link from "next/link";
 
 const Footer = ({data}) => {
 
-  const text  = data.text ?? '';
-  const links = data.links ?? [];
+  const text  = data?.text ?? '';
+  const links = data?.links ?? [];
 
   const toReplaceString = '{{currentYear}}';
   const year = new Date().getFullYear();
-  const disclaimer = data.disclaimer?.replace(toReplaceString, year) ?? '';
+  const disclaimer = data?.disclaimer?.replace(toReplaceString, year) ?? '';
 
   return (
     <div className="footer">

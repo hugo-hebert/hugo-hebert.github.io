@@ -3,10 +3,9 @@ import Link from "next/link";
 
 const Header = ({data}) => {
   
-  const title       = data.title ?? '';
-  const navigation  = data.navigation ?? [];
+  const title       = data?.title ?? '';
+  const navigation  = data?.navigation ?? [];
 
-   
   return (
     <header className="main-nav">
       <Link href="/">
