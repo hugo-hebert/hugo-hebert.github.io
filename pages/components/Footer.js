@@ -1,4 +1,6 @@
 
+import Link from "next/link";
+
 const Footer = ({data}) => {
 
   const text  = data.text ?? '';
@@ -15,14 +17,16 @@ const Footer = ({data}) => {
         <div className="footer--nav">
           {links.map( (link, ix) => {
             return (
-              <a href={link.url} className="external" target="hugo_hebert_external">{link.display_value}</a>
+              <Link href={link.url} key={ix}>
+                <a className="external" target="hugo_hebert_external">{link.display_value}</a>
+              </Link>
             )
           })}
         </div>
       </div>
 
       <div className="footer--row">
-        <span class="footer--discalimer">
+        <span className="footer--discalimer">
           {disclaimer}
         </span>
       </div>

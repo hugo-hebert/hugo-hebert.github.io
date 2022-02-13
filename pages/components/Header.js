@@ -1,4 +1,6 @@
 
+import Link from "next/link";
+
 const Header = ({data}) => {
   
   const title       = data.title ?? '';
@@ -7,10 +9,13 @@ const Header = ({data}) => {
    
   return (
     <header className="main-nav">
-      <a href="/" className="barebones">
-        <h3 className="main-nav--title">{title}</h3>
-        <img className="main-nav--icon" src="/favicon.png" width="192" height="192" alt="Logo for Hugo Hébert"/>
-      </a>
+      <Link href="/">
+        <a className="barebones">
+          <h3 className="main-nav--title">{title}</h3>
+          <img className="main-nav--icon" src="/favicon.png" width="192" height="192" alt="Logo for Hugo Hébert"/>
+        </a>
+      </Link>
+
       <div className="main-nav--links">
       {
         navigation.map( (nav, ix) => {
