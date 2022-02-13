@@ -1,0 +1,18 @@
+@mixin flex-row ($gap: 0) {
+  @include flex(row, center, $gap);
+}
+
+@mixin flex-column ($gap: 0) {
+  @include flex(column, center, $gap);
+}
+
+@mixin flex ($direction, $align, $gap) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  gap: $gap;
+}
+
+.row {
+  @include flex-row();
+}

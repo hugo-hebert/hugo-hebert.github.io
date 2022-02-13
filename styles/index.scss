@@ -2,9 +2,13 @@
 // Setup
 @import 'setup/vars.scss';
 @import 'setup/dimensions.scss';
-@import 'setup/mixins.scss';
+@import 'setup/responsive-mixins.scss';
 @import 'setup/global.scss';
 @import 'setup/maintenance.scss';
+
+// Layouts
+@import 'layouts/flex-mixins.scss';
+@import 'layouts/grid-mixins.scss';
 
 // Components
 @import 'components/Home.scss';

@@ -21,6 +21,7 @@ const Header = ({data}) => {
           )
         })
       }
+      
       </div>
     </header>
   )

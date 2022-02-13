@@ -1,13 +1,22 @@
 .footer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 4rem;
+  @include flex-column($gap);
+  
+  &--row {
+    width: 100%;
+    @include flex-column($gap);
+
+    @include tablet-and-up {
+      @include flex-row(4rem);
+    }
+  }
 
   &--nav {
     display: flex;
     flex-direction: row;
-    margin-left: auto;
-    gap: 1rem;
+    gap: $gap;
+
+    @include tablet-and-up {
+      margin-left: auto;
+    }
   }
 }
